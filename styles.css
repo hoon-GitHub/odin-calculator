@@ -1,4 +1,5 @@
 body {
+    background-color: azure;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -10,14 +11,13 @@ body {
 }
 
 .rows {
-    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .display {
-    width: 65%;
+    width: 250px;
     font-size: x-large;
     font-weight: bold;
     color: darkkhaki;
@@ -29,13 +29,13 @@ body {
 
 .but {
     background-color: slategray;
-    color: white;
+    color: azure;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 5px;
-    border: 1px solid azure;
+    border: 2px solid azure;
     border-radius: 5px;
     width: 60px;
     height: 40px;
@@ -43,6 +43,6 @@ body {
 
 .but:hover {
     font-weight: bold;
-    border: 1px solid darkkhaki;
+    border: 2px solid darkkhaki;
     color: darkkhaki;
 }
