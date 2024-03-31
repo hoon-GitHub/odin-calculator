@@ -10,7 +10,6 @@ const clsBtn = document.querySelector('.cls');
 const negBtn = document.querySelector('.neg');
 const dp = document.querySelector('.display');
 
-
 // Event listener for number buttons
 function numClick() {
     for (let i=0; i < numBtn.length; i++) {
@@ -104,14 +103,15 @@ function negClick() {
     negBtn.addEventListener('click', () => {
         if (numStor[0] != '-') {
             numStor = '-' + numStor;
+            dp.innerText = numStor;
         } else {
             numStor = numStor.substring(1);
+            dp.innerText = numStor;
         }
-        console.log(numStor);
     });
 }
 
-
+// Base operator functions below
 function add(a, b) {
     if (isNaN(a) || isNaN(b)) return 'ERROR';
     else return (a + b);
@@ -129,7 +129,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (isNaN(a) || isNaN(b) || b == 0) return 'ERROR';
-    else return Math.round((a / b)*10000)/10000; // round answer to 4 digits after decimal point
+    else return Math.round((a / b)*10000)/10000; // round answer to 4 digits max after decimal point
 }
 
 function operate(a, b, op) {
@@ -147,7 +147,7 @@ function operate(a, b, op) {
     }
 }
 
-// Call all button click event listeners
+// Ready all buttons for clicks
 numClick();
 opClick();
 calcClick();
