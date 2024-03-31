@@ -7,13 +7,14 @@ const numBtn = document.querySelectorAll('.num');
 const opBtn = document.querySelectorAll('.op');
 const calcBtn = document.querySelector('.calc');
 const clsBtn = document.querySelector('.cls');
+const negBtn = document.querySelector('.neg');
 const dp = document.querySelector('.display');
 
 
 // Event listener for number buttons
 function numClick() {
     for (let i=0; i < numBtn.length; i++) {
-        numBtn[i].addEventListener('click', function() {
+        numBtn[i].addEventListener('click', () => {
             if (operator == null) { // operator has not yet been assigned - num1
                 if (numStor == null) { // very first click
                     numStor = ''; // ready the number storage
@@ -40,7 +41,7 @@ function numClick() {
 // Event listener for operator buttons
 function opClick() {
     for (let i=0; i < opBtn.length; i++) {
-        opBtn[i].addEventListener('click', function() {
+        opBtn[i].addEventListener('click', () => {
             if (operator == null) { // operator is missing: set num1 and assign operator
                 if (numStor != null) {
                     num1 = Number(numStor);
@@ -98,6 +99,18 @@ function clsClick() {
     });
 }
 
+// Event listener for +/- button
+function negClick() {
+    negBtn.addEventListener('click', () => {
+        if (numStor[0] != '-') {
+            numStor = '-' + numStor;
+        } else {
+            numStor = numStor.substring(1);
+        }
+        console.log(numStor);
+    });
+}
+
 
 function add(a, b) {
     if (isNaN(a) || isNaN(b)) return 'ERROR';
@@ -116,7 +129,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (isNaN(a) || isNaN(b) || b == 0) return 'ERROR';
-    else return (a / b);
+    else return Math.round((a / b)*10000)/10000; // round answer to 4 digits after decimal point
 }
 
 function operate(a, b, op) {
@@ -139,3 +152,4 @@ numClick();
 opClick();
 calcClick();
 clsClick();
+negClick();
