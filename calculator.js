@@ -134,6 +134,7 @@ function operate(a, b, op) {
     }
 }
 
+// Call all button click event listeners
 numClick();
 opClick();
 calcClick();

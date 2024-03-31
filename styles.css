@@ -46,3 +46,15 @@ body {
     border: 2px solid darkkhaki;
     color: darkkhaki;
 }
+
+.empty {
+    background-color: rgb(164, 183, 205);
+}
+
+.op, .cls {
+    background-color: rgb(69, 86, 103);
+}
+
+.calc {
+    background-color: rgb(135, 131, 72);
+}
